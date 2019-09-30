@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="sty.css">
+
+</head>
+<body>
+		<div class="container">
+			<div class="card">
+				<div class="card-header">
+					<h3>Sign Up</h3>
+				</div>
+					<form onSubmit = "return checkPassword(this)">
+						<div>
+							<input class="form-control" type="Email" placeholder="Email" name=email id="email">
+						</div>
+						<br>
+						<div >
+							<input class="form-control" type="password" placeholder="Password" id="password1">
+						</div>
+						<br>
+						<div>
+							<input class="form-control" type="password" placeholder="Confirm-Password" id="password2">
+						</div>
+						<br>
+						<div class="s">
+							<input type ="submit" value = "Submit"></div>
+					</form>
+					<div class="s">
+						<p><font size="3" color="white">Already Registered?<a href="sensor.html">Log In</a></font></p>
+					</div>
+
+
+			</div>
+		</div>
+
+
+
+		<script type="text/javascript">
+			
+			let details = [];
+			function checkPassword(form) { 
+                password1 = form.password1.value; 
+                password2 = form.password2.value; 
+  
+                // If password not entered 
+                if (password1 == '') 
+                    alert("please enter password");
+                      
+                // If confirm password not entered 
+                else if (password2 == '') 
+                    alert ("Please enter confirm password"); 
+                      
+                // If Not same return False.     
+                else if (password1 != password2) { 
+                    alert ("\nPassword did not match: Please try again...") 
+                    return false; 
+                } 
+  
+                // If same return True.
+
+		 	else
+		 	{
+		 		
+		            let detail = {
+		                username: document.getElementById('email').value,
+		                password1: document.getElementById('password1').value
+		        	}
+            
+		            details.push(detail);
+		            console.warn('added' , {details} );
+		            localStorage.setItem('registration', JSON.stringify(details));
+        	}
+	        }
+                         
+                
+		</script>
+</body>
+</html>

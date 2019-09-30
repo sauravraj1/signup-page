@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="sty.css">
+</head>
+<body>
+		<div class="container">
+			<div class="card">
+				<div class="card-header">
+					<h3>Sign In</h3>
+				</div>
+					<form onSubmit = "return checkPassword(this)">
+						<div>
+							<input class="form-control" type="Email" placeholder="Email" name=email>
+						</div>
+						<br>
+						<div>
+							<input class="form-control" type="password" placeholder="Password" name=password1>
+						</div>
+						<br>
+						<div class="s">
+						<input type="submit" class="btn" value="Login"></div>
+					</form>
+					<div class="s">
+						<p><font size="3" color="white">Don;t have an account?<a href="signup1.html">Sign Up</a></font></p>
+					</div>
+
+
+			</div>
+		</div>
+		<script type="text/javascript">
+					function checkPassword(form) { 
+				var x,username,password1,p=0;
+				username=form.email.value;
+                password1 = form.password1.value;
+                  var x=0,sa=[];
+        sa=JSON.parse(localStorage.getItem('registration'));
+        for(x in sa)
+        {
+            if(sa[x].password==password1 && sa[x].email==username)
+            {
+                alert("yes it is there");
+            }
+            
+        }
+                } 
+
+		</script>
+</body>
+</html>
